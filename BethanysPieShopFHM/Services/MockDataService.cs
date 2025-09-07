@@ -14,9 +14,9 @@ public class MockDataService
     {
         get
         {
-            _countries ??= InitializeMockCountries();
-            _jobCategories ??= InitializeMockJobCategories();
-            _employees ??= InitializeMockEmployees();
+            _countries = InitializeMockCountries();
+            _jobCategories = InitializeMockJobCategories();
+            _employees = InitializeMockEmployees();
             
             return _employees;
         }
@@ -48,13 +48,13 @@ public class MockDataService
             Smoker = false,
             Street = "New Street",
             Zip = "2000",
-            JobCategory = _jobCategories[1],
-            JobCategoryId = _jobCategories[1].JobCategoryId,
+            // JobCategory = _jobCategories[1],
+            // JobCategoryId = _jobCategories[1].JobCategoryId,
             Comment = "Lorem Ipsum",
             ExitDate = null,
             JoinedDate = new DateTime(2017, 12, 24),
-            Country = _countries[1],
-            CountryId = _countries[1].CountryId
+            // Country = _countries[1],
+            // CountryId = _countries[1].CountryId
         };
         
         var e3 = new Employee
@@ -71,13 +71,13 @@ public class MockDataService
             Smoker = false,
             Street = "New Street",
             Zip = "2000",
-            JobCategory = _jobCategories[1],
-            JobCategoryId = _jobCategories[1].JobCategoryId,
+            // JobCategory = _jobCategories[1],
+            // JobCategoryId = _jobCategories[1].JobCategoryId,
             Comment = "Lorem Ipsum",
             ExitDate = null,
             JoinedDate = new DateTime(2017, 12, 24),
-            Country = _countries[1],
-            CountryId = _countries[1].CountryId
+            // Country = _countries[1],
+            // CountryId = _countries[1].CountryId
         };
 
         return new List<Employee>() { e2, e3 };        
