@@ -7,10 +7,11 @@ namespace BethanysPieShopFHM.Components.Pages;
 
 public partial class EmployeeOverview
 {
-    public EmployeeOverview()
+    public List<Employee>? Employees { get; set; }
+
+    protected override async Task OnInitializedAsync()
     {
+        await Task.Delay(3000);
         Employees = MockDataService.Employees;
     }
-    
-    public List<Employee> Employees { get; set; }
 }
