@@ -15,4 +15,9 @@ public partial class EmployeeDetail : ComponentBase
     {
         Employee = MockDataService.Employees.Single(e => e.EmployeeId == EmployeeId);
     }
+
+    public void ChangeHoliday()
+    {
+        Employee.IsOnHoliday = !Employee.IsOnHoliday;
+    }
 }

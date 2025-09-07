@@ -27,5 +27,7 @@ namespace BethanysPieShopHRM.Shared.Domain
 
         public double? Latitude { get; set; }
         public double? Longitude { get; set; }
+        
+        public bool IsOnHoliday { get; set; }
     }
 }
