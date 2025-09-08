@@ -12,6 +12,8 @@ public partial class EmployeeAdd : ComponentBase
     
     [Inject]
     public IEmployeeDataService? EmployeeDataService { get; set; }
+    protected string Message { get; set; } = "";
+    protected bool IsSaved { get; set; } = false;
 
     protected override void OnInitialized()
     {
@@ -21,5 +23,7 @@ public partial class EmployeeAdd : ComponentBase
     private async Task OnSubmit()
     {
         await EmployeeDataService.AddEmployee(Employee);
+        IsSaved = true;
+        Message = "Employee added";
     }
 }
