@@ -17,7 +17,7 @@ public partial class EmployeeOverview
 
     protected override async Task OnInitializedAsync()
     {
-        Employees = (await _employeeDataService.GetAllEmployeesAsync()).ToList();
+        Employees = (await _employeeDataService.GetAllEmployees()).ToList();
     }
 
     public void ShowQuickViewPopup(Employee selectedEmployee)

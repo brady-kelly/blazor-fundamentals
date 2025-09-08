@@ -4,7 +4,9 @@ namespace BethanysPieShopFHM.Contracts.Repositories;
 
 public interface IEmployeeRepository
 {
-    Task<IEnumerable<Employee>> GetAllEmployeesAsync();
-    
-    Task<Employee?> GetEmployeeByIdAsync(int employeeId);
+    Task<IEnumerable<Employee>> GetAllEmployees();
+    Task<Employee?> GetEmployeeById(int employeeId);
+    Task<Employee> AddEmployee(Employee employee);
+    Task<Employee?> UpdateEmployee(Employee employee);
+    Task DeleteEmployee(int employeeId);
 }

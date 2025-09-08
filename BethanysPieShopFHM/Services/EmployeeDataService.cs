@@ -13,13 +13,28 @@ public class EmployeeDataService: IEmployeeDataService
         _employeeRepository = employeeRepository;
     }
     
-    public async Task<IEnumerable<Employee>> GetAllEmployeesAsync()
+    public async Task<IEnumerable<Employee>> GetAllEmployees()
     {
-        return await _employeeRepository.GetAllEmployeesAsync();
+        return await _employeeRepository.GetAllEmployees();
     }
 
-    public async Task<Employee?> GetEmployeeByIdAsync(int employeeId)
+    public async Task<Employee?> GetEmployeeById(int employeeId)
     {
-        return await _employeeRepository.GetEmployeeByIdAsync(employeeId);
+        return await _employeeRepository.GetEmployeeById(employeeId);
+    }
+
+    public async Task<Employee> AddEmployee(Employee employee)
+    {
+        return await _employeeRepository.AddEmployee(employee);
+    }
+
+    public async Task UpdateEmployee(Employee employee)
+    {
+        await _employeeRepository.UpdateEmployee(employee);
+    }
+
+    public async Task DeleteEmployee(int employeeId)
+    {
+        await _employeeRepository.DeleteEmployee(employeeId);
     }
 }
