@@ -7,7 +7,7 @@ namespace BethanysPieShopHRM.Shared.Domain
         public int EmployeeId { get; set; }
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
         public string Email { get; set; } = string.Empty;
         public string Street { get; set; } = string.Empty;
         public string Zip { get; set; } = string.Empty;

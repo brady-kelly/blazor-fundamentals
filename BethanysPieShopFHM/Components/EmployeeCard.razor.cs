@@ -7,4 +7,7 @@ public partial class EmployeeCard : ComponentBase
 {
     [Parameter]
     public Employee? Employee { get; set; } = null;
+    
+    [Parameter]
+    public EventCallback<Employee> EmployeeQuickViewClicked { get; set; }
 }
