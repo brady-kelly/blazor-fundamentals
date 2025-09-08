@@ -181,10 +181,16 @@
             </div>
 
             <button type="submit" class="btn btn-primary me-1">Save Employee</button>
+
+            <button type="button" class="btn btn-danger my-1" @onclick="@DeleteEmployee">Delete Employees</button>
+
+            <button type="button" class="btn btn-outline-primary ms-1" @onclick="@NavigateToOverview">Back to Overview</button>
             
         </EditForm>
     </section>
 }
 else
 {
+    <div class="alert @StatusClass">@Message</div>
+    <button type="button" class="btn btn-outline-primary" @onclick="@NavigateToOverview">Back to Overview</button>
 }

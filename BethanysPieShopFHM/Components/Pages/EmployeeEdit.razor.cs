@@ -16,7 +16,9 @@ public partial class EmployeeEdit : ComponentBase
     [Inject]
     public IJobCategoryDataService? JobCategoryDataService { get; set; }
 
-
+    [Inject]
+    public NavigationManager NavigationManager { get; set; }
+    
     [Parameter]
     public int EmployeeId { get; set; }
 
@@ -27,7 +29,8 @@ public partial class EmployeeEdit : ComponentBase
     public List<JobCategory> JobCategories { get; set; } = [];
 
     protected bool IsSaved;
-
+    protected string Message = string.Empty;
+    protected string StatusClass = string.Empty;
 
     protected override async Task OnInitializedAsync()
     {
@@ -42,10 +45,27 @@ public partial class EmployeeEdit : ComponentBase
     {
         await EmployeeDataService.UpdateEmployee(Employee);
         IsSaved = true;
+        StatusClass = "alert-success";
+        Message = "Employee updated";
     }
 
-    protected async Task HandleInvalidSubmit()
+    protected void HandleInvalidSubmit()
     {
+        StatusClass = "alert-danger";
+        Message = "Employee update failed";
+    }
+
+    protected async Task DeleteEmployee()
+    {
+        await EmployeeDataService.DeleteEmployee(Employee.EmployeeId);
+        StatusClass = "alert-success";
+        Message = "Employee deleted";
         
+        IsSaved = true;
+    }
+
+    protected void NavigateToOverview()
+    {
+        NavigationManager.NavigateTo("/employeeoverview");
     }
 }
