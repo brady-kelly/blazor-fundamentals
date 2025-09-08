@@ -8,9 +8,8 @@
         </div>
         <div class="card-body employee-card text-center">
             <div class="mb-3">
-                <img src="@($"https://gillcleeren.pluralsight.blob.core.windows.net/person/{Employee.EmployeeId}.jpg")"
-                     alt="Employee Id Image"
-                     class="employee-img rounded-circle img-fluid"/>
+                @*<img src="@Employee.ImageName" class="employee-img rounded-circle img-fluid" alt="Employee Image"/>*@
+                <img src="@Employee.ImageName" alt="img"/>
             </div>
             <a href="@($"employeedetail/{Employee.EmployeeId}")" class="btn btn-outline-primary btn-sm mb-1">
                 Full Details
@@ -24,7 +23,3 @@
         </div>
     </div>
 </div>
-
-@code {
-
-}

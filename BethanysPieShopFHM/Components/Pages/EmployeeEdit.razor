@@ -8,10 +8,19 @@
 
         <h1 class="page-title">Details for @Employee.FirstName @Employee.LastName</h1>
 
-        <EditForm Enhance Model="Employee" FormName="EditEmployeeForm" 
+        <EditForm Enhance Model="Employee" FormName="EditEmployeeForm"
                   OnValidSubmit="@HandleValidSubmit"
                   OnInvalidSubmit="@HandleInvalidSubmit"
                   method="post">
+            
+            <DataAnnotationsValidator/>
+            <ValidationSummary/>
+            <div class="row mb-3">
+                <label for="image" class="col-12 col-sm-3">Select Image: </label>
+                <div class="col-md-8">
+                    <InputFile OnChange="OnInputFileChange"/>
+                </div>
+            </div>
 
             <div class="row mb-3">
                 <label for="lastName" class="col-form-label col-md-3">Last name: </label>
@@ -19,6 +28,7 @@
                     <InputText id="lastName" class="form-control col-md-8" @bind-Value="@Employee.LastName"
                                placeholder="Enter last name"></InputText>
                 </div>
+                <ValidationMessage class="offset-md-3 col-md-8" For="@(() => Employee.LastName)" />
             </div>
 
             <div class="row mb-3">
@@ -27,6 +37,7 @@
                     <InputText id="firstName" class="form-control col-md-8" @bind-Value="@Employee.FirstName"
                                placeholder="Enter first name"></InputText>
                 </div>
+                <ValidationMessage class="offset-md-3 col-md-8" For="@(() => Employee.FirstName)" />
             </div>
 
             <div class="row mb-3">
@@ -185,7 +196,7 @@
             <button type="button" class="btn btn-danger my-1" @onclick="@DeleteEmployee">Delete Employees</button>
 
             <button type="button" class="btn btn-outline-primary ms-1" @onclick="@NavigateToOverview">Back to Overview</button>
-            
+
         </EditForm>
     </section>
 }

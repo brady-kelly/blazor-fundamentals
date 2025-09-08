@@ -2,6 +2,7 @@ using BethanysPieShopFHM.Contracts.Services;
 using BethanysPieShopHRM.Contracts.Services;
 using BethanysPieShopHRM.Shared.Domain;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
 
 namespace BethanysPieShopFHM.Components.Pages;
 
@@ -43,6 +44,18 @@ public partial class EmployeeEdit : ComponentBase
 
     protected async Task HandleValidSubmit()
     {
+        if (selectedFile is not null)
+        {
+            var file = selectedFile;
+            Stream stream = file.OpenReadStream();
+            MemoryStream ms = new();
+            await stream.CopyToAsync(ms);
+            stream.Close();
+            
+            Employee.ImageName = file.Name;
+            Employee.ImageContent = ms.ToArray();
+        }
+        
         await EmployeeDataService.UpdateEmployee(Employee);
         IsSaved = true;
         StatusClass = "alert-success";
@@ -67,5 +80,13 @@ public partial class EmployeeEdit : ComponentBase
     protected void NavigateToOverview()
     {
         NavigationManager.NavigateTo("/employeeoverview");
+    }
+
+    private IBrowserFile? selectedFile;
+
+    private void OnInputFileChange(InputFileChangeEventArgs e)
+    {
+        selectedFile = e.File;
+        StateHasChanged();
     }
 }

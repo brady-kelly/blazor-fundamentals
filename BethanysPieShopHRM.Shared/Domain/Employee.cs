@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BethanysPieShopHRM.Shared.Domain;
@@ -7,12 +8,18 @@ public class Employee
 {
     public int EmployeeId { get; set; }
 
+    [Required]
+    [StringLength(20, ErrorMessage = "First name cannot be longer than 20 characters.")]
     public string FirstName { get; set; } = string.Empty;
 
+    [Required]
+    [StringLength(20, ErrorMessage = "Last name cannot be longer than 20 characters.")]
     public string LastName { get; set; } = string.Empty;
 
     public DateTime? BirthDate { get; set; }
 
+    [Required]
+    [EmailAddress]
     public string Email { get; set; } = string.Empty;
 
     public string? Street { get; set; }
@@ -35,7 +42,7 @@ public class Employee
 
     public bool IsOnHoliday { get; set; } = false;
 
-
+    [StringLength(500, ErrorMessage = "Address cannot be longer than 500 characters.")]
     public string Comment { get; set; } = string.Empty;
 
     public DateTime? JoinedDate { get; set; }
