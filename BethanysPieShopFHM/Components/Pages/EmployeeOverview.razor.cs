@@ -7,6 +7,8 @@ public partial class EmployeeOverview
     public List<Employee>? Employees { get; set; }
     
     private Employee? _selectedEmployee;
+    
+    private string Title = "Employee Overview";
 
     protected override async Task OnInitializedAsync()
     {
