@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BethanysPieShopHRM.Shared.Domain
 {
@@ -29,5 +30,12 @@ namespace BethanysPieShopHRM.Shared.Domain
         public double? Longitude { get; set; }
         
         public bool IsOnHoliday { get; set; }
+        
+        public List<TimeRegistration> TimeRegistrations { get; set; } = new();
+        
+        [NotMapped]
+        public byte[]? ImageContent { get; set; }
+        
+        public string? ImageName { get; set; }
     }
 }

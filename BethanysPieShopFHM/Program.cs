@@ -5,6 +5,9 @@ using BethanysPieShopFHM.Data;
 using BethanysPieShopFHM.Repositories;
 using BethanysPieShopFHM.Services;
 using BethanysPieShopFHM.State;
+using BethanysPieShopHRM.Contracts.Repositories;
+using BethanysPieShopHRM.Contracts.Services;
+using BethanysPieShopHRM.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,6 +24,8 @@ builder.Services.AddDbContextFactory<AppDbContext>(options =>
 
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<IEmployeeDataService, EmployeeDataService>();
+builder.Services.AddScoped<ITimeRegistrationRepository, TimeRegistrationRepository>();
+builder.Services.AddScoped<ITimeRegistrationService, TimeRegistrationService>();
 builder.Services.AddScoped<ApplicationState>();
 
 var app = builder.Build();
