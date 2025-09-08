@@ -1,5 +1,9 @@
 using BethanysPieShopFHM.Components;
+using BethanysPieShopFHM.Contracts.Repositories;
+using BethanysPieShopFHM.Contracts.Services;
 using BethanysPieShopFHM.Data;
+using BethanysPieShopFHM.Repositories;
+using BethanysPieShopFHM.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +17,9 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddDbContextFactory<AppDbContext>(options => 
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<IEmployeeDataService, EmployeeDataService>();
 
 var app = builder.Build();
 

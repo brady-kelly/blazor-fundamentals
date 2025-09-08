@@ -1,3 +1,4 @@
+using BethanysPieShopFHM.Contracts.Services;
 using BethanysPieShopHRM.Shared.Domain;
 using Microsoft.AspNetCore.Components;
 
@@ -8,11 +9,14 @@ public partial class EmployeeDetail : ComponentBase
     [Parameter]
     public int EmployeeId { get; set; }
 
-    public Employee Employee { get; set; } = new Employee();
+    public Employee? Employee { get; set; } = new Employee();
+    
+    [Inject]
+    private IEmployeeDataService? _employeeDataService {  get; set; }
 
-    protected override void OnInitialized()
+    protected async override Task OnInitializedAsync()
     {
-        Employee = MockDataService.Employees.Single(e => e.EmployeeId == EmployeeId);
+        Employee = await _employeeDataService.GetEmployeeByIdAsync(EmployeeId);
     }
 
     public void ChangeHoliday()

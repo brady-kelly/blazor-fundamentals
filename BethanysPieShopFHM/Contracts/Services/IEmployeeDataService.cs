@@ -1,8 +1,8 @@
 using BethanysPieShopHRM.Shared.Domain;
 
-namespace BethanysPieShopFHM.Contracts.Repositories;
+namespace BethanysPieShopFHM.Contracts.Services;
 
-public interface IEmployeeRepository
+public interface IEmployeeDataService
 {
     Task<IEnumerable<Employee>> GetAllEmployeesAsync();
     
