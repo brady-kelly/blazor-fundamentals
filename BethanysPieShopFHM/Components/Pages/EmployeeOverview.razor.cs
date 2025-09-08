@@ -13,4 +13,9 @@ public partial class EmployeeOverview
         await Task.Delay(3000);
         Employees = MockDataService.Employees;
     }
+
+    public void ShowQuickViewPopup(Employee selectedEmployee)
+    {
+        _selectedEmployee = selectedEmployee;
+    }
 }
