@@ -6,7 +6,6 @@ using BethanysPieShopFHM.Repositories;
 using BethanysPieShopFHM.Services;
 using BethanysPieShopFHM.State;
 using BethanysPieShopHRM.Contracts.Repositories;
-using BethanysPieShopHRM.Contracts.Services;
 using BethanysPieShopHRM.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;

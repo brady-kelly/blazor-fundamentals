@@ -1,5 +1,5 @@
 @page "/employeeDetail/{EmployeeId:int}"
-
+@using Microsoft.AspNetCore.Components.QuickGrid
 @rendermode InteractiveServer
 
 <section class="employee-detail">
@@ -26,11 +26,11 @@
                 </span>
             </div>
         }
-        
+
         <div class="mt-2">
             <button type="button" @onclick="@ChangeHoliday" class="btn btn-outline-primary me-1">Change Holiday</button>
         </div>
-        
+
         <div class="col-10 row">
             <div class="col-12 col-xxl-8">
                 <div class="form-group row">
@@ -139,8 +139,19 @@
             </div>
         </div>
     </div>
+
+    @if (ItemsCount == 0)
+    {
+        <p><em>No time registrations found.</em></p>
+    }
+    else
+    {
+        <QuickGrid Items="ItemsQueryable" Pagination="Pagination">
+            <PropertyColumn Property="@(i => i.TimeRegistrationId)" IsDefaultSortColumn="true" Sortable="true" Title="ID"></PropertyColumn>
+            <PropertyColumn Property="@(i => i.StartTime)" Sortable="true" Title="Start"></PropertyColumn>
+            <PropertyColumn Property="@(i => i.EndTime)" Sortable="true" Title="End"></PropertyColumn>
+            <PropertyColumn Property="@(i => i.TaskDescription)" Title="Task" Align="Align.Left"></PropertyColumn>
+        </QuickGrid>
+        <Paginator State="Pagination" />
+    }
 </section>
-
-@code {
-
-}
