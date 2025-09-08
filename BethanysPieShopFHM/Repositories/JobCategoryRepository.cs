@@ -1,9 +1,9 @@
-﻿using BethanysPieShopFHM.Data;
-using BethanysPieShopHRM.Contracts.Repositories;
+﻿using BethanysPieShopFHM.Contracts.Repositories;
+using BethanysPieShopFHM.Data;
 using BethanysPieShopHRM.Shared.Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace BethanysPieShopHRM.Repositories
+namespace BethanysPieShopFHM.Repositories
 {
     public class JobCategoryRepository : IJobCategoryRepository, IDisposable
     {

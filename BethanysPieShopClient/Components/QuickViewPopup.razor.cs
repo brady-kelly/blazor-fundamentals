@@ -1,7 +1,7 @@
 using BethanysPieShopHRM.Shared.Domain;
 using Microsoft.AspNetCore.Components;
 
-namespace BethanysPieShopFHM.Components;
+namespace BethanysPieShopClient.Components;
 
 public partial class QuickViewPopup : ComponentBase
 {

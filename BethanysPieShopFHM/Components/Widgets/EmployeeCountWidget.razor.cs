@@ -1,4 +1,6 @@
-﻿namespace BethanysPieShopFHM.Components.Widgets;
+﻿using BethanysPieShopFHM.Services;
+
+namespace BethanysPieShopFHM.Components.Widgets;
 
 public partial class EmployeeCountWidget
 {

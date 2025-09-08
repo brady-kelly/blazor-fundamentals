@@ -1,8 +1,8 @@
-﻿using BethanysPieShopHRM.Contracts.Repositories;
-using BethanysPieShopHRM.Contracts.Services;
+﻿using BethanysPieShopFHM.Contracts.Repositories;
+using BethanysPieShopFHM.Contracts.Services;
 using BethanysPieShopHRM.Shared.Domain;
 
-namespace BethanysPieShopHRM.Services
+namespace BethanysPieShopFHM.Services
 {
     public class JobCategoryDataService : IJobCategoryDataService
     {
